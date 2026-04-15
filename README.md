@@ -1,6 +1,7 @@
 # cyphera-flink
 
 [![CI](https://github.com/cyphera-labs/cyphera-flink/actions/workflows/ci.yml/badge.svg)](https://github.com/cyphera-labs/cyphera-flink/actions/workflows/ci.yml)
+[![Security](https://github.com/cyphera-labs/cyphera-flink/actions/workflows/codeql.yml/badge.svg)](https://github.com/cyphera-labs/cyphera-flink/actions/workflows/codeql.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
 Format-preserving encryption for [Apache Flink](https://apache-flink.org/) — Flink SQL UDF powered by Cyphera.
