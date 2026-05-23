@@ -21,10 +21,10 @@ public class CypheraProtectFunction extends ScalarFunction {
         return client;
     }
 
-    public String eval(String policyName, String value) {
+    public String eval(String configurationName, String value) {
         if (value == null) return null;
         try {
-            return getClient().protect(value, policyName);
+            return getClient().protect(value, configurationName);
         } catch (Exception e) {
             return "[error: " + e.getMessage() + "]";
         }

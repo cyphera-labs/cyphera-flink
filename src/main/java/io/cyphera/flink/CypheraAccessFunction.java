@@ -10,7 +10,9 @@ import org.apache.flink.table.functions.ScalarFunction;
  *   CREATE FUNCTION cyphera_access AS 'io.cyphera.flink.CypheraAccessFunction';
  *   SELECT cyphera_access(protected_ssn) FROM my_table;
  *
- * Tag-based — no policy name needed.
+ * Header-driven — no configuration name needed for the 1-arg form.
+ * The 2-arg form (configurationName, protectedValue) is an escape hatch
+ * for headerless configurations.
  */
 public class CypheraAccessFunction extends ScalarFunction {
 
@@ -32,10 +34,10 @@ public class CypheraAccessFunction extends ScalarFunction {
         }
     }
 
-    public String eval(String policyName, String protectedValue) {
+    public String eval(String configurationName, String protectedValue) {
         if (protectedValue == null) return null;
         try {
-            return getClient().access(protectedValue, policyName);
+            return getClient().access(protectedValue, configurationName);
         } catch (Exception e) {
             return "[error: " + e.getMessage() + "]";
         }
